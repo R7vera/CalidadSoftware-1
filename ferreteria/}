@@ -1,0 +1,29 @@
+<?php
+require_once __DIR__ . '/../model/suppliermodel.php';
+require_once __DIR__ . '/../model/usuariomodel.php';
+class ClienteController
+{
+    private $clientModel;
+    private $userModel;
+    public function __construct()
+    {
+        $this->clientModel = new ClienteModel();
+        $this->userModel = new UsuarioModel($_SESSION['usuario']);
+    }
+
+    public function getSuppliers()
+    {
+        $username = $this->userModel->getName();
+        $rolname = $this->userModel->getRol();
+
+        $clientes = $this->clientModel->getClientesArray();
+
+        if (empty($clientes)) {
+            $clientes = [];
+        }
+
+        require __DIR__ . '/../views/cliente.php';
+  }
+}
+
+?>
