@@ -1,0 +1,39 @@
+{
+    "name": "ferreteria/api",
+    "description": "API REST para sistema de ferretería",
+    "type": "project",
+    "autoload": {
+        "classmap": [
+            "model/",
+            "controller/",
+            "tests"
+     
+        ]
+
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "TestsController\\": "testscontroller/"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "phpunit/php-code-coverage": "^10.1",
+        "mockery/mockery": "^1.6",
+        "fakerphp/faker": "^1.23"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
